@@ -10,6 +10,7 @@ public class PolynomialDecoder {
 
     public static void main(String[] args) {
         String filePath = "C:\\Chikki\\Catlog\\input.json";
+        //String filePath = "C:\\Chikki\\Catlog\\input2.json";
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             JsonNode rootNode = objectMapper.readTree(new File(filePath));
