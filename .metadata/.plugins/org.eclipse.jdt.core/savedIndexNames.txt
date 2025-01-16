@@ -1,6 +1,0 @@
-INDEX VERSION 1.134+C:\Chikki\Catlog\.metadata\.plugins\org.eclipse.jdt.core
-1702066021.index
-1969258832.index
-892018963.index
-2571024309.index
-1865797976.index
