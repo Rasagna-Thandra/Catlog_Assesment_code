@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
 import java.io.IOException;
+import java.math.BigInteger; 
 import java.util.Iterator;
 
 public class PolynomialDecoder {
@@ -18,7 +19,7 @@ public class PolynomialDecoder {
             int k = rootNode.get("keys").get("k").asInt();
             System.out.println("Keys: n = " + n + ", k = " + k);
             Iterator<String> fieldNames = rootNode.fieldNames();
-            int sum = 0; 
+            BigInteger sum = BigInteger.ZERO;
             System.out.println("Decoded Values:");
             while (fieldNames.hasNext()) {
                 String fieldName = fieldNames.next();
@@ -27,9 +28,9 @@ public class PolynomialDecoder {
                 if (fieldNode.has("base") && fieldNode.has("value")) {
                     int base = fieldNode.get("base").asInt();
                     String value = fieldNode.get("value").asText();
-                    int decodedValue = Integer.parseInt(value, base);
+                    BigInteger decodedValue = new BigInteger(value, base); 
                     System.out.println("Base: " + base + ", Encoded Value: " + value + ", Decoded Value: " + decodedValue);
-                    sum += decodedValue;
+                    sum = sum.add(decodedValue); 
                 }
             }
             System.out.println("The secret (C): " + sum);
